@@ -1,5 +1,19 @@
 install.packages('MASS')
 library('MASS')
 
-pval(x,p)<-{x1<-MASS:::.rat(x)$rat[1]
-x2<-MASS:::.rat(x)$rat[1]}
+pval<-function(x,p){url<-'http://primes.utm.edu/lists/small/10000.txt'
+  x1<-MASS:::.rat(x)$rat[1]
+  x2<-MASS:::.rat(x)$rat[1]
+  c1<-x1%p
+  c2<-x2%p
+  if(c1!=0 & c2!=0)
+  return(0)
+  if(c1==0){
+    d1=1
+    n=1
+    while(c1==0){
+      n=n+1
+      c1=x1%(p^n)
+      }
+    }
+  }
