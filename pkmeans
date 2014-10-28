@@ -1,0 +1,5 @@
+pkmeans<-function(data,k){
+  S<-sample(1:nrow(data),k)
+  centers<-data[S,]
+  rownames(centers)<-NULL
+  }
