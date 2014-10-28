@@ -1,8 +1,10 @@
 install.packages('MASS')
 library('MASS')
 
-pval<-function(x,p){url<-'http://primes.utm.edu/lists/small/10000.txt'
-  PRIMES<-read.table(url, sep=',', header=T)
+pval<-function(x,p){
+  PRIMES<-read.csv('100k.csv',header=FALSE)
+  if(!(p %in% PRIMES))
+  stop('Not a prime')
   x1<-MASS:::.rat(x)$rat[1]
   x2<-MASS:::.rat(x)$rat[2]
   c1<-x1%%p
