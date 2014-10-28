@@ -1,8 +1,13 @@
-pkmeans<-function(data,k){
+pkmeans<-function(data,k,p=2){
   S<-sample(1:nrow(data),k)
   centers<-data[S,]
   rownames(centers)<-NULL
-  for(i in (1:nrow(data))[-S]{
-    
+  class<-c()
+  for(i in 1:nrow(data)){
+    d<-c()
+    for(j in S)
+    d<-c(d,pdist(data[i,],data[j,],p))
+    class<-c(class,min(which(d==min(d))))
     }
+  return(class)
   }
