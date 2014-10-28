@@ -1,7 +1,7 @@
 install.packages('MASS')
 library('MASS')
 
-pval<-function(x,p){
+pval<-function(x,p=2){
   PRIMES<-read.csv('100k.csv',header=FALSE)
   if(!(p %in% PRIMES))
   stop('Not a prime')
