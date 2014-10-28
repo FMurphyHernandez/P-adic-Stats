@@ -5,6 +5,8 @@ pval<-function(x,p=2){
   PRIMES<-read.csv('100k.csv',header=FALSE)
   if(!(p %in% PRIMES))
   stop('Not a prime')
+  if(x==0)
+  return(NaN)
   x1<-MASS:::.rat(x)$rat[1]
   x2<-MASS:::.rat(x)$rat[2]
   c1<-x1%%p
