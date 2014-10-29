@@ -1,4 +1,4 @@
-pkmeans<-function(data,k,p=2){
+pkmeans<-function(data,k,p=2, n=5){
   S<-sample(1:nrow(data),k)
   centers<-data[S,]
   rownames(centers)<-NULL
@@ -9,5 +9,11 @@ pkmeans<-function(data,k,p=2){
     d<-c(d,pdist(data[i,],data[j,],p))
     class<-c(class,min(which(d==min(d))))
     }
+    for(i in 1:k)
+    centers[i]<-colSums(data[class==i,])/nrow(data[class==i,])
+    
+    
+    
+    
   return(class)
   }
