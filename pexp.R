@@ -12,4 +12,5 @@ for(k in n:0){
   E<-c(z,E)
   y<-y-z*(p^k)
   }
+  return(E)
 }
