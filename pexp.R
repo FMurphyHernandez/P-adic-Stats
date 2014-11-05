@@ -6,7 +6,7 @@ if(x==0)
 return(0)
 E<-c()
 y<-x
-n<-ceiling(log(abs(x),p))-1
+n<-ceiling(log(abs(x)+1,p))-1
 for(k in n:0){
   z<-(y-y%%(p^k))/(p^k)
   E<-c(z,E)
